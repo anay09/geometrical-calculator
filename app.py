@@ -16,9 +16,24 @@ def total_size_of_interior_angles(no_of_sides):
 def sine_rule_side(ang1, ang2, sid1):
     return math.sin(ang2)*sid1/math.sin(ang1)
 
+
 def sine_rule_angle(ang1, sid2, sid1):
     return math.asin(sid2*math.sin(ang1)/sid1)
 
+
+def cos_rule_side(sid1, sid2, ang3):
+    return (sid1 ^ 2 + sid2 ^ 2) - 2*sid1*sid2*math.cos(ang3)
+
+
+def cos_rule_angle(sid1,sid2,sid3):
+    return math.acos((sid1 ^ 2 + sid2 ^ 2 - sid3^2)/2*sid1*sid2)
+
+
+def area_non_right_angle_triangle(sid1, sid2, ang3):
+    return 0.5*sid1*sid2*math.sin(ang3)
+
+
+#def trigonometry_simple(sid1, ang1, requirement):
 
 
 print('------------------Geometrical Calculator-------------------')
@@ -33,8 +48,7 @@ print('    - F - Surface Area Calculator')
 print('    - G - Find the Missing Angle')
 print('    - X - Exit')
 
-option = input('Please choose one of the following : ')
-
+option = input('\nPlease choose one of the following : ')
 while True:
     if option == 'A':
         print('You have chosen triangle geometry. Please choose another one of the following...')
@@ -52,7 +66,33 @@ while True:
         print('You have chosen details of regular shapes.')
         shape_type = int(input('Please enter the number of sides on the shape (only up to dodecagon i.e. 12 sides)  : '))
         if shape_type == 3:
-            print('Shape Name = Triangle\n'
-                  'Shape Types = Isosceles, right-angled, scalene, equilateral\n'
-                  'Total Size of Interior Angles = '
-                  '')
+            print('\nShape Name = Triangle'
+                  '\nShape Types = Isosceles, right-angled, scalene, equilateral')
+        elif shape_type == 4:
+            print('\nShape Name : Quadrilateral'
+                  '\nShape Types : Square, Rectangle, Kite, Trapezium, Parallelogram, Rhombus')
+        elif shape_type == 5:
+            print('Shape Name : Pentagon')
+        elif shape_type == 6:
+            print('Shape Name : Hexagon')
+        elif shape_type == 7:
+            print('Shape Name : Heptagon')
+        elif shape_type == 8:
+            print('Shape Name : Octagon')
+        elif shape_type == 9:
+            print('Shape Name : Nonagon')
+        elif shape_type == 10:
+            print('Shape Name : Decagon')
+        elif shape_type == 11:
+            print('Shape Name : Undecagon')
+        elif shape_type == 12:
+            print('Shape Name : Dodecagon')
+        else:
+            print('Invalid Number!!!')
+        print('Total Size of Interior Angles = {a}'
+              '\nSize of One Interior Angle (regular) = {b}'
+              '\nSize of One Exterior Angle (regular) = {c}\n'.format(
+            a=total_size_of_interior_angles(shape_type),
+            b=size_of_one_interior_angle(shape_type),
+            c=size_of_one_exterior_angle(shape_type)
+        ))
