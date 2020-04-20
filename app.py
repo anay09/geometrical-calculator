@@ -33,8 +33,15 @@ def area_non_right_angle_triangle(sid1, sid2, ang3):
     return 0.5*sid1*sid2*math.sin(ang3)
 
 
-#def trigonometry_simple(sid1, ang1, requirement):
 
+
+def simple_inverse_trigonometry(opp, adj, hyp, is_opp, is_adj, is_hyp):
+    if (is_opp == True) and (is_hyp == True):
+        return math.asin(opp/hyp)
+    elif is_adj == True and is_hyp == True:
+        return math.acos(adj/hyp)
+    elif is_opp == True and is_adj == True:
+        return math.atan(opp/adj)
 
 print('------------------Geometrical Calculator-------------------')
 
@@ -96,3 +103,4 @@ while True:
             b=size_of_one_interior_angle(shape_type),
             c=size_of_one_exterior_angle(shape_type)
         ))
+        option = input('Please enter another option : ')
