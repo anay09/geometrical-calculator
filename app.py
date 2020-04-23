@@ -33,8 +33,6 @@ def area_non_right_angle_triangle(sid1, sid2, ang3):
     return 0.5*sid1*sid2*math.sin(ang3)
 
 
-
-
 def simple_inverse_trigonometry(opp, adj, hyp, is_opp, is_adj, is_hyp):
     if (is_opp == True) and (is_hyp == True):
         return math.asin(opp/hyp)
@@ -42,6 +40,21 @@ def simple_inverse_trigonometry(opp, adj, hyp, is_opp, is_adj, is_hyp):
         return math.acos(adj/hyp)
     elif is_opp == True and is_adj == True:
         return math.atan(opp/adj)
+
+
+def heron_formula(sid1, sid2, sid3):
+    s = (sid1 + sid2 + sid3)/2
+    return math.sqrt(s*(s-sid1)*(s-sid2)*(s-sid3))
+
+
+def pythagoras_theorem(sid1, sid2, is_find_hyp):
+    if is_find_hyp==True:
+        return math.sqrt(sid1 ^ 2 + sid2 ^ 2)
+    else:
+        return math.sqrt(sid1 ^ 2 - sid2 ^ 2)
+
+
+
 
 print('------------------Geometrical Calculator-------------------')
 
@@ -69,6 +82,11 @@ while True:
         print("    - F - Heron's Formula")
         print("    - G - Pythagoras Theorem")
         tri_option = input('Choose one : ')
+        if tri_option == 'A1':
+            sid1 = int(input('Please enter the length of a side : '))
+            ang1 = int(input('Please enter the opposite angle of this side :'))
+            sid2 = int(input('Please enter the length of the desired side : '))
+            print(sine_rule_angle(ang1, sid2, sid1))
     if option == 'B':
         print('You have chosen details of regular shapes.')
         shape_type = int(input('Please enter the number of sides on the shape (only up to dodecagon i.e. 12 sides)  : '))
