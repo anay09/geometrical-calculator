@@ -67,7 +67,7 @@ print('    - E - Volume Calculator')
 print('    - F - Surface Area Calculator')
 print('    - G - Find the Missing Angle')
 print('    - X - Exit')
-
+print(math.sin(30))
 option = input('\nPlease choose one of the following : ')
 while True:
     if option == 'A':
@@ -83,9 +83,9 @@ while True:
         print("    - G - Pythagoras Theorem")
         tri_option = input('Choose one : ')
         if tri_option == 'A1':
-            sid1 = int(input('Please enter the length of a side : '))
-            ang1 = int(input('Please enter the opposite angle of this side :'))
-            sid2 = int(input('Please enter the length of the desired side : '))
+            sid1 = float(input('Please enter the length of a side : '))
+            ang1 = float(input('Please enter the opposite angle of this side :'))
+            sid2 = float(input('Please enter the length of the desired side : '))
             print(sine_rule_angle(ang1, sid2, sid1))
     if option == 'B':
         print('You have chosen details of regular shapes.')
