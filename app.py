@@ -1,6 +1,13 @@
 import math
 
 
+def radian(degrees):
+    return math.pi/180 * degrees
+
+
+def degree(radians):
+    return radians * 180 / math.pi
+
 def size_of_one_exterior_angle(no_of_sides):
     return 360/no_of_sides
 
@@ -14,19 +21,19 @@ def total_size_of_interior_angles(no_of_sides):
 
 
 def sine_rule_side(ang1, ang2, sid1):
-    return math.sin(ang2)*sid1/math.sin(ang1)
+    return math.sin(radian(ang2))*sid1/math.sin(radian(ang1))
 
 
 def sine_rule_angle(ang1, sid2, sid1):
-    return math.asin(sid2*math.sin(ang1)/sid1)
+    return degree(math.asin(sid2*math.sin(radian(ang1))/sid1))
 
 
 def cos_rule_side(sid1, sid2, ang3):
-    return (sid1 ^ 2 + sid2 ^ 2) - 2*sid1*sid2*math.cos(ang3)
+    return (sid1 ^ 2 + sid2 ^ 2) - 2*sid1*sid2*math.cos(radian(ang3))
 
 
 def cos_rule_angle(sid1,sid2,sid3):
-    return math.acos((sid1 ^ 2 + sid2 ^ 2 - sid3^2)/2*sid1*sid2)
+    return degree(math.acos((sid1 ^ 2 + sid2 ^ 2 - sid3 ^ 2)/2*sid1*sid2))
 
 
 def area_non_right_angle_triangle(sid1, sid2, ang3):
@@ -52,7 +59,6 @@ def pythagoras_theorem(sid1, sid2, is_find_hyp):
         return math.sqrt(sid1 ^ 2 + sid2 ^ 2)
     else:
         return math.sqrt(sid1 ^ 2 - sid2 ^ 2)
-
 
 
 
@@ -87,9 +93,20 @@ while True:
             ang1 = float(input('Please enter the opposite angle of this side :'))
             sid2 = float(input('Please enter the length of the desired side : '))
             print(sine_rule_angle(ang1, sid2, sid1))
-    if option == 'B':
+        elif tri_option == 'A2':
+            sid1 = float(input('Please enter the length of a side : '))
+            ang1 = float(input('Please enter the opposite angle of this side :'))
+            ang2 = float(input('Please enter the angle of the desired side : '))
+            print(sine_rule_side(ang1, ang2, sid1))
+        elif tri_option == 'B1':
+            sid1 = float(input('Please enter the length of a side : '))
+            sid2 = float(input('Please enter the length of another side :'))
+            sid3 = float(input('Please enter the length of the side opposite to the desired angle : '))
+            print(cos_rule_angle(sid1, sid2, sid3))
+
+    elif option == 'B':
         print('You have chosen details of regular shapes.')
-        shape_type = int(input('Please enter the number of sides on the shape (only up to dodecagon i.e. 12 sides)  : '))
+        shape_type = int(input('Please enter the number of sides on the shape (only up to 12 sides)  : '))
         if shape_type == 3:
             print('\nShape Name = Triangle'
                   '\nShape Types = Isosceles, right-angled, scalene, equilateral')
