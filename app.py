@@ -8,6 +8,7 @@ def radian(degrees):
 def degree(radians):
     return radians * 180 / math.pi
 
+
 def size_of_one_exterior_angle(no_of_sides):
     return 360/no_of_sides
 
@@ -61,6 +62,8 @@ def pythagoras_theorem(sid1, sid2, is_find_hyp):
         return math.sqrt(sid1 ^ 2 - sid2 ^ 2)
 
 
+def rectangle_square_parallelogram_area(length, width):
+    return length*width
 
 print('------------------Geometrical Calculator-------------------')
 
@@ -99,10 +102,10 @@ while True:
             ang2 = float(input('Please enter the angle of the desired side : '))
             print(sine_rule_side(ang1, ang2, sid1))
         elif tri_option == 'B1':
-            sid1 = float(input('Please enter the length of a side : '))
-            sid2 = float(input('Please enter the length of another side :'))
-            sid3 = float(input('Please enter the length of the side opposite to the desired angle : '))
-            print(cos_rule_angle(sid1, sid2, sid3))
+            #sid1 = float(input('Please enter the length of a side : '))
+            #sid2 = float(input('Please enter the length of another side :'))
+            #sid3 = float(input('Please enter the length of the side opposite to the desired angle : '))
+            #print(cos_rule_angle(sid1, sid2, sid3))
 
     elif option == 'B':
         print('You have chosen details of regular shapes.')
@@ -139,3 +142,5 @@ while True:
             c=size_of_one_exterior_angle(shape_type)
         ))
         option = input('Please enter another option : ')
+    elif option == 'C':
+
